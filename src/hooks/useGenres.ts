@@ -2,6 +2,7 @@ import { CanceledError } from "axios";
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import useData from "./useData";
+import genres from '../Data/genres'
 
 export interface Genre {
     id: number;
@@ -9,7 +10,9 @@ export interface Genre {
     image_background: string;
 }
 
-const useGenres = () => useData<Genre>('/genres')
+// const useGenres = () => useData<Genre>('/genres')
+
+const useGenres = () => ({ data: genres, isLoading: false, error: null })
 
 // interface FetchGenresResponse {
 //     count: number;
